@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="listOptions">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="listValues">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="temp">
+        <item>High</item>
+        <item>Moderate</item>
+        <item>Low</item>
+        <item>Smart</item>
+    </string-array>
+    <string-array name="intensity">
+        <item>High</item>
+        <item>Moderate</item>
+        <item>Low</item>
+        <item>Smart</item>
+
+    </string-array>
+</resources>

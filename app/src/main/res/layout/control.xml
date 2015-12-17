@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="#41b2ff">
+
+
+    <Space
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/space" />
+
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:id="@+id/FrameLayout3"
+        android:layout_alignRight="@+id/space"
+        android:layout_alignEnd="@+id/space"
+        android:layout_below="@+id/space"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:background="#ffdb00"
+        android:layout_margin="5dp"
+        android:onClick="room_click">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Room Light"
+            android:id="@+id/textView13"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:id="@+id/FrameLayout4"
+        android:clickable="true"
+        android:background="#ffdb00"
+        android:layout_below="@+id/space"
+        android:layout_toRightOf="@+id/space"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="5dp"
+        android:onClick="power_click">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Power Switch"
+            android:id="@+id/textView14"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:id="@+id/FrameLayout5"
+        android:clickable="true"
+        android:background="#ffdb00"
+        android:layout_below="@+id/FrameLayout3"
+        android:layout_alignLeft="@+id/FrameLayout3"
+        android:layout_alignStart="@+id/FrameLayout3"
+        android:layout_alignRight="@+id/FrameLayout3"
+        android:layout_alignEnd="@+id/FrameLayout3"
+        android:onClick="fan_click">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Fan"
+            android:id="@+id/textView15"
+            android:layout_gravity="center" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar"
+            android:layout_gravity="center_horizontal|bottom"
+            android:max="4" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:id="@+id/FrameLayout6"
+        android:clickable="true"
+        android:background="#ffdb00"
+        android:layout_alignTop="@+id/FrameLayout5"
+        android:layout_toRightOf="@+id/space"
+        android:layout_alignRight="@+id/FrameLayout4"
+        android:layout_alignEnd="@+id/FrameLayout4"
+        android:layout_marginLeft="5dp"
+        android:onClick="settings_click">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Settings"
+            android:id="@+id/textView16"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+
+</RelativeLayout>
