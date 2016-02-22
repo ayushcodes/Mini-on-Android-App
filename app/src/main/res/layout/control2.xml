@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:background="#FFDF32">
+    android:background="#41b2ff">
 
 
     <Space
@@ -24,16 +24,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:clickable="true"
-        android:background="#fcb2aa"
+        android:background="#ffdb00"
         android:layout_margin="5dp"
-        android:onClick="room_click">
+        android:onClick="light1_click">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Room Light"
-            android:id="@+id/textView13"
+            android:text="Light 1"
+            android:id="@+id/light1txt"
             android:layout_gravity="center" />
     </FrameLayout>
 
@@ -42,19 +42,19 @@
         android:layout_height="150dp"
         android:id="@+id/light2"
         android:clickable="true"
-        android:background="#fcb2aa"
+        android:background="#ffdb00"
         android:layout_below="@+id/space"
         android:layout_toRightOf="@+id/space"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="5dp"
-        android:onClick="power_click">
+        android:onClick="light2_click">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Power Switch"
+            android:text="Light 2"
             android:id="@+id/textView14"
             android:layout_gravity="center" />
     </FrameLayout>
@@ -64,61 +64,85 @@
         android:layout_height="150dp"
         android:id="@+id/ac1"
         android:clickable="true"
-        android:background="#fcb2aa"
+        android:background="#ffdb00"
         android:layout_below="@+id/light1"
         android:layout_alignLeft="@+id/light1"
         android:layout_alignStart="@+id/light1"
         android:layout_alignRight="@+id/light1"
         android:layout_alignEnd="@+id/light1"
-        android:onClick="fan_click">
+        android:onClick="ac1_click">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TEMP UP"
+            android:id="@+id/button5"
+            android:layout_gravity="left|bottom"
+            android:textSize="10dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TEMP DOWN"
+            android:id="@+id/button8"
+            android:layout_gravity="right|bottom"
+            android:textSize="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Fan"
+            android:text="AC 1"
             android:id="@+id/textView15"
             android:layout_gravity="center" />
 
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/seekBar"
-            android:layout_gravity="center_horizontal|bottom"
-            android:max="4" />
-
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="150dp"
-        android:id="@+id/FrameLayout6"
+        android:id="@+id/ac2"
         android:clickable="true"
-        android:background="#fcb2aa"
+        android:background="#ffdb00"
+        android:onClick="ac2_click"
         android:layout_alignTop="@+id/ac1"
-        android:layout_toRightOf="@+id/space"
+        android:layout_alignLeft="@+id/light2"
+        android:layout_alignStart="@+id/light2"
         android:layout_alignRight="@+id/light2"
-        android:layout_alignEnd="@+id/light2"
-        android:layout_marginLeft="5dp"
-        android:onClick="vis_click">
+        android:layout_alignEnd="@+id/light2">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TEMP UP"
+            android:id="@+id/button9"
+            android:layout_gravity="left|bottom"
+            android:textSize="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Visitors Data"
-            android:id="@+id/textView16"
-            android:layout_gravity="center"
-            android:onClick="vis_click" />
+            android:text="AC 2"
+            android:id="@+id/textView17"
+            android:layout_gravity="center" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TEMP DOWN"
+            android:id="@+id/button10"
+            android:layout_gravity="right|bottom"
+            android:textSize="10dp" />
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="150dp"
-        android:id="@+id/frameLayout"
+        android:id="@+id/door"
         android:clickable="true"
-        android:background="#fcb2aa"
-        android:onClick="settings_click"
+        android:background="#ffdb00"
+        android:onClick="door_click"
         android:layout_below="@+id/ac1"
         android:layout_alignLeft="@+id/ac1"
         android:layout_alignStart="@+id/ac1"
@@ -130,8 +154,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Settings"
-            android:id="@+id/textView20"
+            android:text="Door Light"
+            android:id="@+id/textView18"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:id="@+id/proj"
+        android:clickable="true"
+        android:background="#ffdb00"
+        android:onClick="projector_click"
+        android:layout_alignTop="@+id/door"
+        android:layout_alignRight="@+id/light2"
+        android:layout_alignEnd="@+id/light2"
+        android:layout_alignLeft="@+id/ac2"
+        android:layout_alignStart="@+id/ac2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Projector"
+            android:id="@+id/textView19"
             android:layout_gravity="center" />
     </FrameLayout>
 

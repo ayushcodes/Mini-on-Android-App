@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
@@ -19,8 +18,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.SeekBar;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -30,14 +27,13 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class control extends AppCompatActivity {
+public class control2 extends AppCompatActivity {
 
-   FrameLayout room, power, fan, settings;
-    int fanspeed;
+   FrameLayout light1, light2, ac1, ac2, door, projector;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.control);
+        setContentView(R.layout.control2);
 
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
@@ -46,88 +42,124 @@ public class control extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
-       room = (FrameLayout) findViewById(R.id.light1);
-        power = (FrameLayout) findViewById(R.id.light2);
-        fan = (FrameLayout) findViewById(R.id.ac1);
+       light1  = (FrameLayout) findViewById(R.id.light1);
+        light2 = (FrameLayout) findViewById(R.id.light2);
+        ac1 = (FrameLayout) findViewById(R.id.ac1);
+        ac2 = (FrameLayout) findViewById(R.id.ac2);
+        door = (FrameLayout) findViewById(R.id.door);
+        projector = (FrameLayout) findViewById(R.id.proj);
 
-        settings = (FrameLayout) findViewById(R.id.FrameLayout6);
 
-        SeekBar fanSpeed = (SeekBar) findViewById(R.id.seekBar);
 
-        fanSpeed.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            int progressChanged = 0;
-
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                progressChanged = progress;
-            }
-
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // TODO Auto-generated method stub
-            }
-
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(control.this, "Fan Speed: " + progressChanged,
-                        Toast.LENGTH_SHORT).show();
-                fanspeed=progressChanged;
-            }
-        });
 
     }
 
 
-    public void room_click(View v) {
+    public void light1_click(View v) {
         int color = Color.TRANSPARENT;
-        Drawable background = room.getBackground();
+        Drawable background = light1.getBackground();
         if (background instanceof ColorDrawable)
             color = ((ColorDrawable) background).getColor();
-        if (color == Color.parseColor("#fcb2aa"))
+        if (color == Color.parseColor("#ffdb00"))
         {
-            room.setBackgroundColor(Color.GREEN);
+            light1.setBackgroundColor(Color.GREEN);
         }
         else
         {
-            room.setBackgroundColor(Color.parseColor("#fcb2aa"));
+            light1.setBackgroundColor(Color.parseColor("#ffdb00"));
         }
 
         send_req();
     }
-    public void power_click(View v) {
 
+    public void light2_click(View v) {
         int color = Color.TRANSPARENT;
-        Drawable background = power.getBackground();
+        Drawable background = light2.getBackground();
         if (background instanceof ColorDrawable)
             color = ((ColorDrawable) background).getColor();
-        if(color == Color.parseColor("#fcb2aa"))
+        if (color == Color.parseColor("#ffdb00"))
         {
-            power.setBackgroundColor(Color.GREEN);
+            light2.setBackgroundColor(Color.GREEN);
         }
         else
         {
-            power.setBackgroundColor(Color.parseColor("#fcb2aa"));
+            light2.setBackgroundColor(Color.parseColor("#ffdb00"));
         }
 
         send_req();
-
-
     }
-    public void fan_click(View v) {
 
-
+    public void ac1_click(View v) {
         int color = Color.TRANSPARENT;
-        Drawable background = fan.getBackground();
+        Drawable background = ac1.getBackground();
         if (background instanceof ColorDrawable)
             color = ((ColorDrawable) background).getColor();
-        if(color == Color.parseColor("#fcb2aa"))
+        if (color == Color.parseColor("#ffdb00"))
         {
-            fan.setBackgroundColor(Color.GREEN);
+            ac1.setBackgroundColor(Color.GREEN);
         }
         else
         {
-            fan.setBackgroundColor(Color.parseColor("#fcb2aa"));
+            ac1.setBackgroundColor(Color.parseColor("#ffdb00"));
         }
 
         send_req();
-    }  public void settings_click(View v) {
+    }
+
+
+    public void ac2_click(View v) {
+        int color = Color.TRANSPARENT;
+        Drawable background = ac2.getBackground();
+        if (background instanceof ColorDrawable)
+            color = ((ColorDrawable) background).getColor();
+        if (color == Color.parseColor("#ffdb00"))
+        {
+            ac2.setBackgroundColor(Color.GREEN);
+        }
+        else
+        {
+            ac2.setBackgroundColor(Color.parseColor("#ffdb00"));
+        }
+
+        send_req();
+    }
+
+
+    public void door_click(View v) {
+        int color = Color.TRANSPARENT;
+        Drawable background = door.getBackground();
+        if (background instanceof ColorDrawable)
+            color = ((ColorDrawable) background).getColor();
+        if (color == Color.parseColor("#ffdb00"))
+        {
+            door.setBackgroundColor(Color.GREEN);
+        }
+        else
+        {
+            door.setBackgroundColor(Color.parseColor("#ffdb00"));
+        }
+
+        send_req();
+    }
+
+
+    public void projector_click(View v) {
+        int color = Color.TRANSPARENT;
+        Drawable background = projector.getBackground();
+        if (background instanceof ColorDrawable)
+            color = ((ColorDrawable) background).getColor();
+        if (color == Color.parseColor("#ffdb00"))
+        {
+            projector.setBackgroundColor(Color.GREEN);
+        }
+        else
+        {
+            projector.setBackgroundColor(Color.parseColor("#ffdb00"));
+        }
+
+        send_req();
+    }
+    public void settings_click(View v) {
 
         Intent mainIntent = new Intent(this, SetPref.class);
         startActivity(mainIntent);
@@ -135,15 +167,6 @@ public class control extends AppCompatActivity {
 
 
     }
-    public void vis_click(View v) {
-
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/a/iith.ac.in/spreadsheets/d/1p07k7i4j3phhjZ5MOu1hRjW1MU1xuXA70j2vyPUPJPE/edit?usp=sharing"));
-        startActivity(browserIntent);
-
-
-
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -176,45 +199,89 @@ public class control extends AppCompatActivity {
 
 
                     int color = Color.TRANSPARENT;
-                    Drawable background = fan.getBackground();
+                    Drawable background = light1.getBackground();
                     if (background instanceof ColorDrawable)
                         color = ((ColorDrawable) background).getColor();
-                    if(color == Color.parseColor("#fcb2aa"))
+                    if(color == Color.parseColor("#ffdb00"))
                     {
-                        false_comp += "fan,";
+                        false_comp += "light1,";
                     }
                     else
                     {
-                        true_comp += "fan-"+fanspeed+",";
+                        true_comp += "light1,";
+                    }
+
+                    color = Color.TRANSPARENT;
+                    background = light2.getBackground();
+                    if (background instanceof ColorDrawable)
+                        color = ((ColorDrawable) background).getColor();
+                    if(color == Color.parseColor("#ffdb00"))
+                    {
+                        false_comp += "light2,";
+                    }
+                    else
+                    {
+                        true_comp += "light2,";
+                    }
+
+                    color = Color.TRANSPARENT;
+                    background = ac1.getBackground();
+                    if (background instanceof ColorDrawable)
+                        color = ((ColorDrawable) background).getColor();
+                    if(color == Color.parseColor("#ffdb00"))
+                    {
+                        false_comp += "ac1,";
+                    }
+                    else
+                    {
+                        true_comp += "ac1,";
+                    }
+
+                    color = Color.TRANSPARENT;
+                    background = ac2.getBackground();
+                    if (background instanceof ColorDrawable)
+                        color = ((ColorDrawable) background).getColor();
+                    if(color == Color.parseColor("#ffdb00"))
+                    {
+                        false_comp += "ac2,";
+                    }
+                    else
+                    {
+                        true_comp += "ac2,";
                     }
 
 
                     color = Color.TRANSPARENT;
-                    background = room.getBackground();
+                    background = door.getBackground();
                     if (background instanceof ColorDrawable)
                         color = ((ColorDrawable) background).getColor();
-                    if(color == Color.parseColor("#fcb2aa"))
+                    if(color == Color.parseColor("#ffdb00"))
                     {
-                        false_comp += "room-light,";
+                        false_comp += "door,";
                     }
                     else
                     {
-                        true_comp += "room-light,";
+                        true_comp += "door,";
                     }
 
 
                     color = Color.TRANSPARENT;
-                     background = power.getBackground();
+                    background = projector.getBackground();
                     if (background instanceof ColorDrawable)
                         color = ((ColorDrawable) background).getColor();
-                    if(color == Color.parseColor("#fcb2aa"))
+                    if(color == Color.parseColor("#ffdb00"))
                     {
-                        false_comp += "power-switch,";
+                        false_comp += "projector,";
                     }
                     else
                     {
-                        true_comp += "power-switch,";
+                        true_comp += "projector,";
                     }
+
+
+
+
+
 
 
                     if(true_comp == "")
@@ -280,13 +347,6 @@ public class control extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Intent mainIntent = new Intent(this, SetPref.class);
-            startActivity(mainIntent);
-            return true;
-
-        }
-
-        if (id == R.id.pranet) {
-            Intent mainIntent = new Intent(this, control2.class);
             startActivity(mainIntent);
             return true;
 
